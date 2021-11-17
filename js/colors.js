@@ -3,15 +3,26 @@ const myButton = document.querySelector('button');
 const myBox = document.querySelector('.box');
 const colors = ['red', 'green', 'blue', 'yellow'];
 //console.log(myButton);
-let rndLast = null;
+let randomValues = [];
+
+//template literals
+let name = 'Micheal Jackson';
+
+console.log(`Hello, ${name}`);
+
 myButton.addEventListener('click', changeColor);
 
 function changeColor(){
-    let rnd = Math.floor(Math.random() * colors.length);
-    if (rndLast === rnd) {
-        colors.splice(rnd, )
+    if (randomValues.length === 0){
+        for(let i = 0; i < colors.length; i++)
+        {
+        randomValues.push(i);
+        }
     }
-    console.log(rnd)
-    myBox.style.backgroundColor = colors[rnd];
-    rndLast = rnd;
+
+    let randomIndex = Math.floor(Math.random() * randomValues.length);
+    let indexFromMyarray = randomValues[randomIndex];
+    randomValues.splice(randomIndex, 1);
+    console.log(randomValues);
+    myBox.style.backgroundColor = colors[indexFromMyarray];
 }
